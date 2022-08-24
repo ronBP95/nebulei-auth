@@ -24,14 +24,6 @@ function Register() {
 
               </input>
             </div>
-            <div className='mt-5'>
-              <label className="block text-gray-700">
-                Specialty
-              </label>
-              <input type="occupation" name="occupation" id="occupation" placeholder="Enter Specialty" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
-
-              </input>
-            </div>
             <div className='mt-4'>
               <label className="block text-gray-700">
                 Email Address

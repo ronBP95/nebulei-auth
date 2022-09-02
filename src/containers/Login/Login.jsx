@@ -1,57 +1,74 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 function Login() {
   return (
     <>
-    <section className="flex flex-col md:flex-row h-screen items-center">
-      <div className="bg-blue-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
-        <img src="https://storage.googleapis.com/nebulei-main-images/gifs/nebulei-gif-7" alt="Nebulei-Login-GIF" className="w-full h-full object-cover"></img>
-      </div>
-      <div className="bg-white w-full md:max-w-md lg:max-w-full md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
-        <div className="w-full h-100">
-          <div className="flex">
-            <img src="https://storage.googleapis.com/nebulei-main-images/icons/nebulei-svg-logo" height="100" width="100" alt="Nebulei-Logo" ></img>
-          </div>
-          <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">
-            Log in to your account
-          </h1>
-          <form className="mt-6" action="#" method="POST">
-            <div>
-              <label className="block text-gray-700">
-                Email Address
-              </label>
-              <input type="email" name="email" id="email" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
-
-              </input>
-            </div>
-            <div class="mt-4">
-              <label class="block text-gray-700">
-                Password
-              </label>
-              <input type="password" name="password" id="password" placeholder="Enter Password" minlength="6" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none" required>
-
-              </input>
-            </div>
-            <div class="text-right mt-2">
-              <a href="/" className="text-sm font-semibold text-gray-700 hover:text-purple-700 focus:text-purple-700">
-                Forgot Password?
-              </a>
-            </div>
-            <button type="submit" className="w-full block bg-purple-500 hover:bg-purple-400 focus:bg-purple-400 text-white font-semibold rounded-lg px-4 py-3 mt-6">
-              Login
-            </button>
-          </form>
-          <hr class="my-6 border-gray-300 w-full"></hr>
-          <button type="button" className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
-            <div className="flex items-center justify-center">
-            
-              <span className="ml-4">Login with Google</span>
-            </div>
-          </button>
-          <p className="mt-8">Need an account? <a href="/register" className="text-purple-500 hover:text-purple-700 font-semibold">Create an account</a></p>
-          <p className="text-sm text-gray-500 mt-12 nebulei-font">&copy; 2022 Nebulei - All Rights Reserved.</p>
+    <section className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8">
+        <div className='nebulei-font'>
+          <img className="mx-auto h-12 w-auto" src="https://storage.googleapis.com/nebulei-main-images/icons/nebulei-svg-logo" alt="Nebulei Logo"></img>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-black">
+            Login to Nebulei
+          </h2>
+          <p className='mt-2 text-gray-600 text-center'>
+            or
+          </p>
+          <p className="mt-2 text-center text-sm font-medium text-purple-600 hover:text-purple-500">
+            <Link to="/register">
+              Create an account
+            </Link>
+          </p>
         </div>
+    
+        <form action="#" method="POST">
+          <div className="shadow sm:overflow-hidden">
+              <div className="px-9 py-8 bg-white space-y-6">
+
+                <div className="col-span-6">
+                    <label for="email" className="block text-sm font-medium text-gray-700">Email address</label>
+                    <input type="text" name="email" id="email" autocomplete="email" required className="mt-1 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm">
+
+                    </input>
+                </div>
+
+                <div class="col-span-6">
+                    <label for="password" className="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" name="password" id="password" required className="mt-1 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm">
+
+                    </input>
+                </div>
+                
+                <div>
+                  <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                    <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                      <svg className="h-5 w-5 text-purple-500 group-hover:text-purple-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                    Login
+                  </button>
+                </div>
+              
+                <div className="flex flex-row items-center justify-center">
+                    <hr className="w-28 border-gray-300 block"></hr>
+                    <label className="mx-2 text-sm text-gray-500">Or continue with</label>
+                    <hr className="w-28 border-gray-300 block"></hr>
+                </div>
+                <div className="flex items-center justify-center">
+                  <button type="button" class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 text-sm font-medium rounded-md px-4 py-3 border border-gray-300">
+                    <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+
+                    </span>
+                    Join with Google
+                  </button>
+                </div>
+              
+              </div>
+          </div>
+        </form>
+        
       </div>
     </section>
     </>

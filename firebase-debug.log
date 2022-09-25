@@ -1,0 +1,25 @@
+[debug] [2022-09-25T21:32:05.968Z] ----------------------------------------------------------------------
+[debug] [2022-09-25T21:32:05.970Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-09-25T21:32:05.971Z] CLI Version:   11.2.1
+[debug] [2022-09-25T21:32:05.971Z] Platform:      win32
+[debug] [2022-09-25T21:32:05.971Z] Node Version:  v14.19.1
+[debug] [2022-09-25T21:32:05.972Z] Time:          Sun Sep 25 2022 14:32:05 GMT-0700 (Pacific Daylight Time)
+[debug] [2022-09-25T21:32:05.972Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-25T21:32:06.032Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-25T21:32:06.033Z] > authorizing via signed-in user (ronmagpantay9513@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\ronma\Desktop\cs_projects\nebulei-auth
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+

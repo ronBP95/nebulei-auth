@@ -1,8 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword  } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDhovGKcjdVtszUNwpRowXLoCdliDth-Bg",
+  authDomain: "nebulei-auth-web.firebaseapp.com",
+  projectId: "nebulei-auth-web",
+  storageBucket: "nebulei-auth-web.appspot.com",
+  messagingSenderId: "1050506847893",
+  appId: "1:1050506847893:web:dd69b19092c43cb8775d9c",
+  measurementId: "G-57165M4V71"
+};
+
 
 
 function Register() {
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  })
+
+  const { email, password } = formData
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const handleEmail = (e) => {
+    e.preventDefault();
+    setFormData((formData) => ({
+      ...formData,
+      email: e.target.value,
+    }));
+  };
+
+  const handlePassword = (e) => {
+    e.preventDefault();
+    setFormData((formData) => ({
+      ...formData,
+      password: e.target.value,
+    }));
+  };
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData)
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log("User Signed in Successfully")
+      const user = userCredential.user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode)
+      console.log(errorMessage)
+      console.log(formData)
+    });
+  }
+
   return (
     <>
     <section className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
@@ -22,34 +80,35 @@ function Register() {
           </p>
         </div>
     
-        <form action="#" method="POST">
+        {/* <form action="#" method="POST" onSubmit={formSubmit}> */}
+        <form onSubmit={formSubmit}>
           <div className="shadow sm:overflow-hidden">
               <div className="px-9 py-8 bg-white space-y-6">
 
-                <div className="col-span-6">
+                {/* <div className="col-span-6">
                     <label for="username" className="block text-sm font-medium text-gray-700">Username</label>
                     <input type="text" name="username" id="username" autocomplete="username" required className="mt-1 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm">
 
                     </input>
-                </div>
+                </div> */}
 
-                <div className="col-span-6">
+                {/* <div className="col-span-6">
                     <label for="name" className="block text-sm font-medium text-gray-700">Full Name</label>
                     <input type="text" name="name" id="name" autocomplete="name" required className="mt-1 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm">
 
                     </input>
-                </div>
+                </div> */}
 
                 <div className="col-span-6">
                     <label for="email" className="block text-sm font-medium text-gray-700">Email address</label>
-                    <input type="text" name="email" id="email" autocomplete="email" required className="mt-1 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm">
+                    <input type="text" onChange={handleEmail} value={formData.email} name="email" id="email" autocomplete="email" required className="mt-1 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm">
 
                     </input>
                 </div>
 
                 <div class="col-span-6">
                     <label for="password" className="block text-sm font-medium text-gray-700">Password</label>
-                    <input type="password" name="password" id="password" required className="mt-1 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm">
+                    <input type="password" onChange={handlePassword} value={formData.password} name="password" id="password" required className="mt-1 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm">
 
                     </input>
                 </div>

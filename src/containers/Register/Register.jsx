@@ -44,18 +44,17 @@ function Register() {
 
   const formSubmit = (e) => {
     e.preventDefault();
-    console.log(formData)
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log("User Registered Successfully")
       const user = userCredential.user;
+      console.log(user)
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode)
       console.log(errorMessage)
-      console.log(formData)
     });
   }
 

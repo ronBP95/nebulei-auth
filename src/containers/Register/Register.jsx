@@ -13,8 +13,6 @@ const firebaseConfig = {
   measurementId: "G-57165M4V71"
 };
 
-
-
 function Register() {
 
   const [formData, setFormData] = useState({
@@ -49,7 +47,7 @@ function Register() {
     console.log(formData)
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log("User Signed in Successfully")
+      console.log("User Registered Successfully")
       const user = userCredential.user;
     })
     .catch((error) => {

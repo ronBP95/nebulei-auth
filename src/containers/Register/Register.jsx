@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 function Register() {
+  const [formData, setFormData] = useState({
+    userName: "",
+    fullName: "",
+    email: "",
+    password: "",
+  })
+
+  const { userName, fullName, email, password } = formData
+  const formSubmit = () => {
+    e.preventDefault();
+    console.log("Form Submitted")
+  }
+  
   return (
     <>
     <section className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
@@ -22,7 +35,8 @@ function Register() {
           </p>
         </div>
     
-        <form action="#" method="POST">
+        {/* <form action="#" method="POST" onSubmit={formSubmit}> */}
+        <form onSubmit={formSubmit}>
           <div className="shadow sm:overflow-hidden">
               <div className="px-9 py-8 bg-white space-y-6">
 
